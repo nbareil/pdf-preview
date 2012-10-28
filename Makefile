@@ -6,6 +6,6 @@ CFLAGS=$(COPT) `pkg-config --cflags $(PKG)`
 LDFLAGS=`pkg-config --libs $(PKG)`
 DEBUG_SECCOMP=syscall-reporter.o
 
-pdfviewer: pdfviewer.o $(DEBUG_SECCOMP)
+pdf-preview: pdf-preview.o $(DEBUG_SECCOMP)
 
 include syscall-reporter.mk
