@@ -147,22 +147,22 @@ int write_json_stdout(page_t *page) {
 }
 
 void render_page(page_t *page_meta, PopplerPage *page) {;
-		cairo_t *cairoctx;
-		cairo_surface_t *surface;
-		double width, height;
+	cairo_t *cairoctx;
+	cairo_surface_t *surface;
+	double width, height;
 
-		poppler_page_get_size(page, &width, &height);
-		surface = cairo_svg_surface_create_for_stream(concat_svg,
-													  page_meta,
-													  width, height);
-		cairoctx = cairo_create(surface);
-		if (cairoctx == NULL)
-			ERROR("Cannot create a Cairo buffer");
-		poppler_page_render(page, cairoctx);
-		cairo_surface_show_page(surface);
+	poppler_page_get_size(page, &width, &height);
+	surface = cairo_svg_surface_create_for_stream(concat_svg,
+		page_meta,
+		width, height);
+	cairoctx = cairo_create(surface);
+	if (cairoctx == NULL)
+		ERROR("Cannot create a Cairo buffer");
+	poppler_page_render(page, cairoctx);
+	cairo_surface_show_page(surface);
 
-		cairo_surface_destroy(surface);
-		cairo_destroy(cairoctx);
+	cairo_surface_destroy(surface);
+	cairo_destroy(cairoctx);
 }
 
 int main(int argc, char const *argv[])
