@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>PDF to SVG</title>
+	<meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-store, no-cache" />
+	<meta http-equiv="Expires" content="0" />
+</head>
+
+<script>
+var i = 0;
+
+function next_image () {
+	i++;
+	update_image(i);
+}
+
+function update_image(counter) {
+	i = counter
+	var newfilename = "img-" + i + ".svg"
+	document.querySelectorAll('img')[0].src = newfilename;	
+}
+</script>
+
+<body>
+	<img src="img-0.svg" height="100%" 
+		 onclick="next_image()"
+		 onerror="update_image(0)" />
+</body>
+</html>
